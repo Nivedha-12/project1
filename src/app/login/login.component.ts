@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup , Validators } from '@angular/forms';
+import { FormBuilder, FormGroup  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
@@ -47,11 +47,12 @@ export class LoginComponent implements OnInit{
       console.log(this.loginForm.value.password);
 
       for(let i=0; i < res.length; i++){
-        if(this.loginForm.value.email == res[i].email){
+        if(this.loginForm.value.email == res[i].email && this.loginForm.value.password == res[i].username){
           alert("data matched.")
-        }else{
-          alert("data not matched.")
         }
+        // else {
+        //   alert("data not matched.")
+        // }
       }
     })
 }
